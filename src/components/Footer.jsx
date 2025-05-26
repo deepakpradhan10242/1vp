@@ -1,10 +1,10 @@
-
+import { Instagram, Twitter, Facebook, Linkedin, Youtube } from "lucide-react";
 const Home = () => {
-  return (
+  return <footer className="bg-gray-900 text-gray-300 fixed bottom-0">
     <div>
-        <h3>Footer</h3>
-    </div>
-  )
-}
 
-export default Home
+    </div>
+  </footer>;
+};
+
+export default Home;

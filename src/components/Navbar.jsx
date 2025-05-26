@@ -1,10 +1,7 @@
-
 const Home = () => {
-  return (
-    <div>
-        <h3>Navbar</h3>
-    </div>
-  )
-}
+	return (
+		<div></div>
+	);
+};
 
-export default Home
+export default Home;
