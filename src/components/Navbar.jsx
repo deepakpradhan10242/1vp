@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo/logo.png";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -15,56 +14,64 @@ const Navbar = () => {
     { label: "Services", path: "/services" },
   ];
 
-  const stripeLinks = [
-    { label: "Top Picks", path: "/top-picks" },
-    { label: "Services", path: "/services" },
-    { label: "Stories", path: "/stories" },
-  ];
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
-    <header className="w-full bg-white relative z-50">
-      <div className="w-full sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8 px-0">
-        
-        <div className="flex justify-center py-2">
-          <Link to="/">
-            <img src={logo} alt="Logo" className="h-24 sm:h-40 w-auto" />
-          </Link>
-        </div>
-
-        
-        <div className="bg-blue-900 py-0 md:hidden">
-          <div className="flex items-center justify-between px-4">
-            
-            <button
-              onClick={() => setMobileOpen((prev) => !prev)}
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-              className="p-2"
-            >
-              {mobileOpen ? (
-                <X size={28} className="text-white" />
-              ) : (
-                <Menu size={28} className="text-white" />
-              )}
-            </button>
-
-            
-            <div className="flex space-x-5">
-              {stripeLinks.map(({ label, path }, i) => (
-                <Link
-                  key={i}
-                  to={path}
-                  className="text-white text-sm font-thin hover:underline"
-                >
-                  {label}
-                </Link>
-              ))}
+    <header className="w-full bg-white relative z-50 font-times">
+      {/* Site Title */}
+      <div className="flex justify-center py-4 sm:py-6">
+        <Link to="/" className="text-center w-full flex justify-center">
+          <div className="border-2 border-blue-900 overflow-hidden w-fit max-w-full">
+            <div className="flex flex-nowrap">
+              <div className="bg-blue-900 px-3 sm:px-6 py-2 sm:py-4">
+                <h1 className="text-white text-2xl sm:text-6xl lg:text-7xl font-bold uppercase whitespace-nowrap">
+                  Industries
+                </h1>
+              </div>
+              <div className="bg-white px-3 sm:px-6 py-2 sm:py-4">
+                <h1 className="text-blue-900 text-2xl sm:text-6xl lg:text-7xl font-bold uppercase whitespace-nowrap">
+                  Times
+                </h1>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
+      </div>
 
-        
-        <nav className="hidden md:flex justify-center space-x-16 text-sm font-semibold py-2 border-t border-b border-gray-800">
+      {/* Mobile Toggle */}
+      <div className="bg-blue-900 py-2 md:hidden w-full">
+        <div className="flex items-center justify-start px-4">
+          <button
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            className="p-2"
+          >
+            {mobileOpen ? (
+              <X size={28} className="text-white" />
+            ) : (
+              <Menu size={28} className="text-white" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Nav */}
+      <div className="w-full sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-20 px-4">
+        <nav
+          className="hidden md:flex justify-center space-x-16 text-sm font-semibold py-2 border-t border-b border-gray-800"
+          role="navigation"
+        >
           {navItems.map(({ label, path }, i) => (
             <Link
               key={i}
@@ -77,11 +84,19 @@ const Navbar = () => {
         </nav>
       </div>
 
-      
+      {/* Mobile Sidebar */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
       <div
-        className={`fixed top-0 left-0 h-full w-full bg-white z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 h-full w-3/4 sm:w-2/5 bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
-        } flex flex-col px-6 pt-16`}
+        } flex flex-col px-6 pt-16 shadow-lg`}
+        role="dialog"
+        aria-modal="true"
       >
         <button
           onClick={() => setMobileOpen(false)}
@@ -97,6 +112,7 @@ const Navbar = () => {
             to={path}
             onClick={() => setMobileOpen(false)}
             className="mb-6 text-lg font-medium hover:text-blue-900"
+            tabIndex={0}
           >
             {label}
           </Link>
