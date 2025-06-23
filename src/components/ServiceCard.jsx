@@ -1,6 +1,11 @@
 import TickIcon from "../assets/icons8-tick.svg";
 import cross from "../assets/cross.svg";
+import { Navigate } from "react-router-dom";
 
+
+const checkout = () => {
+  Navigate("/checkout");
+}
 const ServiceCard = ({
   title,
   description,
@@ -75,6 +80,7 @@ const ServiceCard = ({
         <button
           className="w-full px-5 py-3 mt-auto rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow hover:from-indigo-600 hover:to-purple-600 transition"
           aria-label={`Get started with ${title}`}
+          onClick={() => Checkout()}
         >
           Get Started
         </button>
