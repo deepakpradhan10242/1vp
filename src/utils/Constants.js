@@ -175,6 +175,49 @@ export const videography = [
     },
 ];
 
+export const BundlePack = [
+    {
+        title: "Starter Pack",
+        description:
+            "Essential visual content and a kickstart for your brand's presence.",
+        price: "INR 999",
+        // icon: Film,
+        features: [
+            "Professionally designed posters with a standard template (2 rounds of revisions).",
+            "2-day promotional boost to amplify your content's reach.",
+            "Polished video edit (up to 3 minutes) from raw footage.",
+            "Minor adjustments like color correction and cropping.",
+        ],
+    },
+    {
+        title: "Content Engine",
+        description:
+            "Comprehensive content suite designed for consistent, high-quality output across media types.",
+        price: "INR 1899",
+        // icon: Smartphone,
+        features: [
+            "8 custom-designed posters with advanced graphics & typography.",
+            "4 video edits (up to 5 mins each) for storytelling and campaigns.",
+            "Production support for 1 podcast episode (up to 20 mins).",
+            "Faster turnaround time for content delivery.",
+        ],
+    },
+    {
+        title: "Digital Growth",
+        description:
+            "End-to-end digital presence and marketing support. Built on Content Engine with added strategic tools.",
+        price: "INR 2999",
+        // icon: Instagram,
+        features: [
+            "All features from the Content Engine package.",
+            "SEM consultation, keyword research & ad campaign setup.",
+            "Responsive, single-page website design optimized for UX.",
+            "Analytics setup to track website performance and behavior.",
+        ],
+    },
+];
+  
+
 // export const SEO = [
 // 	{
 // 		title: "Basic",
