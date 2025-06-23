@@ -25,80 +25,78 @@ const ServiceSection = ({ title, services }) => (
 	</section>
 );
 
-const BundlePackage = ({ bundle }) => (
-	<section className="w-full py-12 px-4 sm:px-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-white mb-16 rounded-xl shadow-inner">
-		<div className="relative w-full mb-10">
-			<h1 className="font-serif w-full text-center text-black text-4xl sm:text-6xl font-extrabold drop-shadow-lg tracking-tight">
-				<span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-					BUNDLED PACKAGES
-				</span>
-			</h1>
-			<p className="font-mono text-slate-700 text-center w-full mt-2 text-lg">
-				<span className="inline-block px-3 py-1 bg-yellow-200 text-yellow-900 rounded-full font-semibold shadow">
-					Best Value
-				</span>
-			</p>
-		</div>
+// const BundlePackage = ({ bundle }) => (
+// 	<section className="w-full py-12 px-4 sm:px-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-white mb-16 rounded-xl shadow-inner">
+// 		<div className="relative w-full mb-10">
+// 			<h1 className="font-serif w-full text-center text-black text-4xl sm:text-6xl font-extrabold drop-shadow-lg tracking-tight">
+// 				<span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+// 					BUNDLED PACKAGES
+// 				</span>
+// 			</h1>
+// 			<p className="font-mono text-slate-700 text-center w-full mt-2 text-lg">
+// 				<span className="inline-block px-3 py-1 bg-yellow-200 text-yellow-900 rounded-full font-semibold shadow">
+// 					Best Value
+// 				</span>
+// 			</p>
+// 		</div>
 
-		<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-8">
-			{bundle &&
-				bundle.map((service, index) => (
-					<div
-						key={index}
-						className={`relative flex-1 min-w-[280px] max-w-sm bg-white rounded-2xl shadow-xl border-2 border-indigo-100 hover:border-indigo-400 transition-all duration-200 p-7 flex flex-col justify-between ${
-							index === 1
-								? "scale-105 border-2 border-purple-400 shadow-2xl z-10"
-								: ""
-						}`}
-					>
-						{index === 1 && (
-							<div className="absolute top-0 left-10 transform -translate-x-1/2">
-								<span className="px-1 py-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-lg  text-xs font-bold shadow z-20">
-									Most Popular
-								</span>
-							</div>
-						)}
+// 		<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-8">
+// 			{bundle &&
+// 				bundle.map((service, index) => (
+// 					<div
+// 						key={index}
+// 						className={`relative flex-1 min-w-[280px] max-w-sm bg-white rounded-2xl shadow-xl border-2 border-indigo-100 hover:border-indigo-400 transition-all duration-200 p-7 flex flex-col justify-between ${
+// 							index === 1
+// 								? "scale-105 border-2 border-purple-400 shadow-2xl z-10"
+// 								: ""
+// 						}`}
+// 					>
+// 						{index === 1 && (
+// 							<div className="absolute top-0 left-10 transform -translate-x-1/2">
+// 								<span className="px-1 py-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-lg  text-xs font-bold shadow z-20">
+// 									Most Popular
+// 								</span>
+// 							</div>
+// 						)}
 
-						{/* Optional icon display */}
-						{/* <div className="mb-3">{service.icon && <service.icon className="w-8 h-8 text-indigo-500" />}</div> */}
+// 						{/* Optional icon display */}
+// 						{/* <div className="mb-3">{service.icon && <service.icon className="w-8 h-8 text-indigo-500" />}</div> */}
 
-						<div>
-							<h2 className="text-2xl font-bold text-indigo-700 mb-2 text-center">
-								{service.title}
-							</h2>
-							<p className="text-gray-700 mb-4">
-								{service.description}
-							</p>
-							<ul className="text-sm text-gray-800 mb-6 space-y-2 leading-relaxed">
-								{service.features.map((feature, i) => (
-									<li key={i} className="pl-1 flex items-start gap-2">
-										<img
-											src={GreenTick}
-											alt="tick"
-											className="w-5 h-5 mt-0.5"
-										/>
-										<span>{feature}</span>
-									</li>
-								))}
-							</ul>
-						</div>
+// 						<div>
+// 							<h2 className="text-2xl font-bold text-indigo-700 mb-2 text-center">
+// 								{service.title}
+// 							</h2>
+// 							<p className="text-gray-700 mb-4">{service.description}</p>
+// 							<ul className="text-sm text-gray-800 mb-6 space-y-2 leading-relaxed">
+// 								{service.features.map((feature, i) => (
+// 									<li key={i} className="pl-1 flex items-start gap-2">
+// 										<img
+// 											src={GreenTick}
+// 											alt="tick"
+// 											className="w-5 h-5 mt-0.5"
+// 										/>
+// 										<span>{feature}</span>
+// 									</li>
+// 								))}
+// 							</ul>
+// 						</div>
 
-						<div className="mt-auto flex flex-col items-center">
-							<span className="text-xl font-extrabold text-purple-700 mb-2">
-								{service.price}
-							</span>
-							<button
-								className="mt-2 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full shadow hover:from-indigo-600 hover:to-purple-600 transition-all duration-200"
-								type="button"
-							>
-								Buy Now
-							</button>
-						</div>
-					</div>
-				))}
-		</div>
-	</section>
-);
+// 						<div className="mt-auto flex flex-col items-center">
+// 							<span className="text-xl font-extrabold text-purple-700 mb-2">
+// 								{service.price}
+// 							</span>
+// 							<button
+// 								className="mt-2 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-full shadow hover:from-indigo-600 hover:to-purple-600 transition-all duration-200"
+// 								type="button"
+// 							>
+// 								Buy Now
+// 							</button>
+// 						</div>
+// 					</div>
+// 				))}
+// 		</div>
+// 	</section>
+// );
 
 
 const Service = () => {
