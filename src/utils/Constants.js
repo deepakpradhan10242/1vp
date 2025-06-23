@@ -175,6 +175,49 @@ export const videography = [
     },
 ];
 
+export const BundlePack = [
+    {
+        title: "Starter Pack",
+        description:
+            "Essential visual content and a kickstart for your Brands presence.",
+        price: "INR 999",
+        // icon: Film,
+        features: [
+            "Professionally designed social media or announcement posters with a standard design template, including 2 rounds of revisions to ensure satisfaction.",
+            "Amplify your content's reach with a 2-day promotional boost",
+            "A polished video edit (up to 3 minutes) from your raw footage",
+            "Minor adjustments like color correction and cropping for your poster visuals."
+        ],
+    },
+    {
+        title: "Content Engine",
+        description:
+            "Power your brand with a comprehensive content creation suite, designed for consistent high-quality output across multiple media types.",
+        price: "INR 1899",
+        //icon: Smartphone,
+        features: [
+            "8 High-Resolution Custom-designed posters with advanced graphics & typography, suitable for marketing campaigns.",
+            "Four professional video edits (up to 5 minutes each) transformed from your raw footage, ideal for deeper dives or storytelling.",
+            "Full production support for one podcast episode (up to 20 minutes), including basic audio editing and sound mastering.",
+            "Quicker turnaround times for content delivery.",
+        ],
+    },
+    {
+        title: "Digital Growth",
+        description:
+            "The ultimate solution for end-to-end digital presence and strategic growth, building on Content Engine with powerful marketing and a dedicated web presence.",
+        price: "INR 899",
+        //icon: Instagram,
+        features: [
+            "All features listed in the Content Engine package.",
+            " Initial Search Engine Marketing (SEM) consultation, keyword research, and campaign setup to kickstart your online advertising efforts",
+            " A professional, responsive, and engaging single-page website design, optimized for user experience",
+            "Setup of essential analytics tools to track website performance and user behavior.",
+        ],
+    },
+];
+
+
 // export const SEO = [
 // 	{
 // 		title: "Basic",
