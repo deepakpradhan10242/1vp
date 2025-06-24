@@ -69,14 +69,14 @@ const Navbar = () => {
       {/* Desktop Nav */}
       <div className="w-full sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-20 px-4">
         <nav
-          className="hidden md:flex justify-center space-x-16 text-sm font-semibold py-2 border-t border-b border-gray-800"
+          className="hidden md:flex justify-center space-x-16 text-base lg:text-lg font-bold uppercase tracking-wide py-2 border-t border-b border-gray-800"
           role="navigation"
         >
           {navItems.map(({ label, path }, i) => (
             <Link
               key={i}
               to={path}
-              className="hover:text-blue-900 cursor-pointer"
+              className="hover:text-blue-900 cursor-pointer transition-colors duration-200"
             >
               {label}
             </Link>
@@ -84,13 +84,15 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar Overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-40"
           onClick={() => setMobileOpen(false)}
         />
       )}
+
+      {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-3/4 sm:w-2/5 bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
@@ -106,17 +108,19 @@ const Navbar = () => {
           <X size={24} className="text-white" />
         </button>
 
-        {navItems.map(({ label, path }, i) => (
-          <Link
-            key={i}
-            to={path}
-            onClick={() => setMobileOpen(false)}
-            className="mb-6 text-lg font-medium hover:text-blue-900"
-            tabIndex={0}
-          >
-            {label}
-          </Link>
-        ))}
+        <div className="mt-12 flex flex-col space-y-6">
+          {navItems.map(({ label, path }, i) => (
+            <Link
+              key={i}
+              to={path}
+              onClick={() => setMobileOpen(false)}
+              className="text-lg font-extrabold hover:text-blue-900"
+              tabIndex={0}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   );
