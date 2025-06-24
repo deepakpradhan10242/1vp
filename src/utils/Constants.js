@@ -2,6 +2,7 @@ import { Film, Smartphone, Instagram } from "lucide-react";
 
 export const posters = [
     {
+        name:"Poster-Basic",
         title: "Basic",
         description:
             "Essential visual content designed for quick announcements and social media.Visually striking content for timely announcements.",
@@ -22,6 +23,7 @@ export const posters = [
         ],
     },
     {
+        name: "Poster-Standard",
         title: "Standard",
         description:
             "Elevate your brand with custom-designed, high-resolution posters. Ideal for marketing campaigns.",
@@ -42,6 +44,7 @@ export const posters = [
         ],
     },
     {
+        name: "Poster-Advanced",
         title: "Advanced",
         description:
             "Enjoy sophisticated custom elements, extensive image work, unlimited revisions, and priority service.",
@@ -61,6 +64,7 @@ export const posters = [
 
 export const podcasts = [
     {
+        name: "Podcasts-Basic",
         title: "Basic",
         description:
             "Captivating short-form video content designed for maximum engagement on Instagram and TikTok.",
@@ -80,6 +84,7 @@ export const podcasts = [
         ],
     },
     {
+        name: "Podcasts-Standard",
         title: "Standard",
         description:
             "Eye-catching static visuals optimized for social media and digital advertising platforms.",
@@ -98,6 +103,7 @@ export const podcasts = [
         ],
     },
     {
+        name: "Podcasts-Advanced",
         title: "Advanced",
         description:
             "Comprehensive video content to showcase your products, services or brand story.",
@@ -117,6 +123,7 @@ export const podcasts = [
 
 export const videography = [
     {
+        name:"Video-Basic",
         title: "Basic",
         description:
             "Captivating short-form video content designed for maximum engagement on Instagram and TikTok.",
@@ -137,6 +144,7 @@ export const videography = [
         ],
     },
     {
+        name: "Video-Standard",
         title: "Standard",
         description:
             "Eye-catching static visuals optimized for social media and digital advertising platforms.",
@@ -157,6 +165,7 @@ export const videography = [
         ],
     },
     {
+        name: "Video-Advanced",
         title: "Advanced",
         description:
             "Comprehensive video content to showcase your products, services or brand story.",
@@ -177,6 +186,7 @@ export const videography = [
 
 export const BundlePack = [
     {
+        name: "Starter Pack",
         title: "Starter Pack",
         description:
             "Essential visual content and a kickstart for your Brands presence.",
@@ -190,6 +200,7 @@ export const BundlePack = [
         ],
     },
     {
+        name: "Content Engine",
         title: "Content Engine",
         description:
             "Power your brand with a comprehensive content creation suite, designed for consistent high-quality output across multiple media types.",
@@ -203,6 +214,7 @@ export const BundlePack = [
         ],
     },
     {
+        name: "Digital Growth",
         title: "Digital Growth",
         description:
             "The ultimate solution for end-to-end digital presence and strategic growth, building on Content Engine with powerful marketing and a dedicated web presence.",

@@ -1,6 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { useLocation } from "react-router-dom";
 
-const Checkout = ({ serviceName = "Poster Design", amount = 999 }) => {
+const Checkout = () => {
+
+	const location = useLocation();
+	const { ServiceName, amount } = location.state || {};
+
+	//Using Cookies for Price and service showcase on Checkout page (NOT SECURE - user can modify)
+	// const [service, setService] = useState("");
+	// const [price, setPrice] = useState("");
+	// useEffect(() => {
+	// 	setService(Cookies.get('serviceType') || "N/A");
+	// 	setPrice(Cookies.get('price') || 'N/A');
+	// }, []);
+
+
 	const [formData, setFormData] = useState({
 		name: "",
 		phone: "",
@@ -161,10 +176,10 @@ const Checkout = ({ serviceName = "Poster Design", amount = 999 }) => {
 					<div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md text-center">
 						<h3 className="text-2xl font-semibold mb-4">Order Summary</h3>
 						<p className="text-lg mb-2">
-							<strong>Service:</strong> {serviceName}
+							<strong>Service:</strong> {ServiceName}
 						</p>
 						<p className="text-lg mb-4">
-							<strong>Total Amount:</strong> ₹{amount}
+							<strong>Total Amount:</strong> {amount}
 						</p>
 						<button
 							onClick={handleSubmit}
