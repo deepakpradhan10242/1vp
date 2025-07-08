@@ -11,6 +11,7 @@ const ServiceSection = ({ title, services }) => (
 			{services?.map((service, index) => (
 				<ServiceCard
 					key={service.id || index}
+					name ={service.name}
 					title={service.title}
 					description={service.description}
 					features={service.features}
