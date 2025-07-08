@@ -379,3 +379,21 @@ export const BundlePack = [
 // 		],
 // 	},
 //];
+
+export const Podcasts = [
+  {
+    title: "Smarter Branding with Data – Ft. Srinivasan M S",
+    description: `We sit down with Srinivasan M S, CEO of 7 Sages Solutions, to discuss how data-driven decision-making reshapes modern businesses.`,
+    videoId: "0sqDC3j551M",
+  },
+  {
+    title: "Loading...",
+    description: "Loading...",
+    videoId: "",
+  },
+  {
+    title: "Loading...",
+    description: "Loading...",
+    videoId: "",
+  },
+];

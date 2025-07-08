@@ -3,10 +3,13 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import s1 from "../assets/stories/1.jpg";
 import s2 from "../assets/stories/2.jpg";
+import { Podcasts } from "../utils/Constants.js";
+import logo from "../assets/logo/logo.png";
 
 const HomeTopPicks = () => {
   const timerRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
@@ -16,7 +19,6 @@ const HomeTopPicks = () => {
     },
   });
 
-  // Autoplay with pause on hover
   useEffect(() => {
     const sliderInstance = slider?.current;
     const container = sliderRef.current;
@@ -65,10 +67,17 @@ const HomeTopPicks = () => {
           {/* Left section with slideshow */}
           <div className="lg:col-span-2">
             <div className="relative">
-              <div ref={sliderRef} className="keen-slider rounded-md overflow-hidden">
+              <div
+                ref={sliderRef}
+                className="keen-slider rounded-md overflow-hidden"
+              >
                 {[s1, s2].map((img, index) => (
                   <div key={index} className="keen-slider__slide">
-                    <img src={img} alt={`Slide ${index + 1}`} className="w-full h-auto object-cover" />
+                    <img
+                      src={img}
+                      alt={`Slide ${index + 1}`}
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
                 ))}
               </div>
@@ -103,66 +112,123 @@ const HomeTopPicks = () => {
 
             {/* Text below slider */}
             <div className="mt-6">
-  <p className="text-sm font-medium text-gray-600">■ Featured</p>
+              <p className="text-sm font-semibold text-green-600 uppercase tracking-wide">
+                ■ Featured
+              </p>
 
-  <h1 className="text-2xl sm:text-3xl font-extrabold mt-2">
-    A Silent Force Redefining How Industries Procure – Inside 1VP’s Relentless Move to Disrupt India’s Procurement Playbook
-  </h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold mt-2">
+                {expanded ? (
+                  "A Silent Force Redefining How Industries Procure – Inside 1VP’s Relentless Move to Disrupt India’s Procurement Playbook"
+                ) : (
+                  <>
+                    A Silent Force Redefining How Industries Procure – Inside
+                    1VP’s...
+                    <button
+                      onClick={() => setExpanded(true)}
+                      className="ml-1 text-blue-600 text-sm font-semibold hover:underline"
+                    >
+                      Read More
+                    </button>
+                  </>
+                )}
+              </h1>
 
-  <div className="mt-4 text-base sm:text-lg text-gray-700 space-y-4">
-    <p>
-      India’s industrial procurement landscape has long been overdue for a digital transformation. 1Vendor Platform | 1VP is changing that—quietly but powerfully.
-    </p>
+              <div
+                className={`mt-4 text-base sm:text-lg text-gray-700 space-y-4 ${
+                  expanded ? "" : "line-clamp-4"
+                }`}
+              >
+                <p>
+                  India’s industrial procurement landscape has long been overdue
+                  for a digital transformation. 1Vendor Platform | 1VP is
+                  changing that—quietly but powerfully.
+                </p>
 
-    <p>
-      By combining automation, transparency, and a localized approach, 1VP's tech-first approach is revolutionizing B2B procurement for all industrial users, including large enterprises, SMEs, MSMEs, and even individual business buyers.
-    </p>
+                <p>
+                  By combining automation, transparency, and a localized
+                  approach, 1VP's tech-first approach is revolutionizing B2B
+                  procurement for all industrial users, including large
+                  enterprises, SMEs, MSMEs, and even individual business buyers.
+                </p>
 
-    <p>
-      🚀 With a founding team rooted in deep domain and tech leadership, 1VP is building the future of industrial commerce—smart, scalable, and inclusive.
-    </p>
-  </div>
+                <p>
+                  🚀 With a founding team rooted in deep domain and tech
+                  leadership, 1VP is building the future of industrial
+                  commerce—smart, scalable, and inclusive.
+                </p>
+              </div>
 
-  <p className="mt-4 font-semibold">
-    Ankit Pant – CTO & Co-founder, Sushant Dutta – CEO & Co-founder
-  </p>
-</div>
+              {expanded && (
+                <button
+                  onClick={() => setExpanded(false)}
+                  className="mt-2 text-sm font-semibold text-blue-600 hover:underline focus:outline-none"
+                >
+                  Read Less
+                </button>
+              )}
 
+              <p className="mt-4 font-semibold">
+                Ankit Pant – CTO & Co-founder, Sushant Dutta – CEO & Co-founder
+              </p>
+            </div>
           </div>
 
           {/* Right section */}
           <div className="space-y-8">
-            {/* CapTable */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-black border-b-4 border-green-500 inline-block mb-4">
-                Stories
+            {/* Podcasts */}
+            <div className="hidden sm:block">
+              <h2 className="text-xl sm:text-2xl font-black border-b-4 border-green-500 inline-block mb-4">
+                Podcasts
               </h2>
-              <div className="space-y-6">
-                {[1, 2, 3].map((_, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-20 h-20 bg-gray-300 rounded-md" />
-                    <div>
-                      <p className="text-sm font-semibold leading-tight">
-                        {i === 0
-                          ? "Loading"
-                          : i === 1
-                          ? "Loading"
-                          : "Loading"}
+              <div className="space-y-4">
+                {Podcasts.map((podcast, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col sm:flex-row gap-3 p-2 bg-white rounded-md shadow-sm"
+                  >
+                    <div className="w-full sm:w-48 flex-shrink-0 aspect-video bg-gray-200 rounded-md overflow-hidden">
+                      {podcast.videoId ? (
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube.com/embed/${podcast.videoId}`}
+                          title={podcast.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <div className="w-full h-full bg-gray-300" />
+                      )}
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <p
+                        className="text-xs sm:text-sm font-semibold leading-tight line-clamp-2"
+                        title={podcast.title}
+                      >
+                        {podcast.videoId ? (
+                          podcast.title
+                        ) : (
+                          <span className="bg-gray-300 text-transparent rounded w-40 h-3 inline-block" />
+                        )}
                       </p>
-                      <p className="text-xs text-gray-600 mt-1">
-                        {i === 0
-                          ? "Loading"
-                          : i === 1
-                          ? "Loading"
-                          : "Loading"}
+                      <p
+                        className="text-xs text-gray-600 mt-1 line-clamp-2"
+                        title={podcast.description}
+                      >
+                        {podcast.videoId ? (
+                          podcast.description
+                        ) : (
+                          <span className="bg-gray-200 text-transparent rounded w-52 h-2.5 inline-block" />
+                        )}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
             {/* Newsletter */}
+            
             <div className="border border-gray-300 p-4 rounded-md shadow-sm">
               <div className="flex items-start justify-between mb-3">
                 <div>
@@ -170,7 +236,11 @@ const HomeTopPicks = () => {
                     Sign Up For Industries Times Newsletter
                   </h3>
                 </div>
-                <div className="w-10 h-10 bg-gray-200 rounded-full" />
+                <img
+                  src={logo}
+                  alt="Industries Times Logo"
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input
