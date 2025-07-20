@@ -52,7 +52,7 @@ const ServiceSection = ({ title, services }) => (
 
 const Service = () => {
   return (
-		<main className="w-full overflow-x-hidden">
+		<main className="w-full lg:px-32 overflow-x-hidden">
 			<div className="flex flex-col items-center px-4 sm:px-6">
 				<h1 className="text-2xl sm:text-3xl font-bold my-8 text-center">
 					Our Marketing Services
